@@ -1,5 +1,7 @@
+@use 'sass:map';
 @use 'colors';
-@use 'typography'as typo;
+// @use 'typography'as typo;
+@import './typography';
 
 .navbar-brand {
   background: -webkit-linear-gradient(45deg, #08AADB, #f07328);
@@ -45,12 +47,15 @@ body {
     font-size: 14px;
     color: rgb(231, 231, 231);
     cursor: pointer;
+
+    &:active {
+      color: rgb(192, 192, 192) !important;
+    }
   }
 }
 
 #banner {
   position: relative;
-
 }
 
 .carousel-caption {
@@ -59,20 +64,195 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba($color: #000000, $alpha: .4);
+  background-color: rgba($color: #000000, $alpha: .3);
 }
 
+.caption-text {
+  width: 50vw;
+  position: absolute;
+  // top: 132px;
+  // left: 236px;
+  top: 18%;
+  left: 18%;
+  // background-color: black;
+
+
+
+  .movie-title {
+    margin-bottom: 16px;
+    font-size: 56px;
+
+    font-weight: map-get($map: $font-weights, $key: 'medium');
+  }
+
+  .description {
+    margin-bottom: 16px;
+  }
+
+  .btn-watch {
+    font-weight: map-get($map: $font-weights, $key: 'medium');
+    color: white;
+    padding: 16px 56px;
+    background: transparent;
+    border: 1px solid #08AADB;
+    border-radius: 40px;
+
+
+    &:hover {
+      background-color: #08AADB;
+    }
+
+    &:active {
+      background-color: #047294;
+      border-color: #047294;
+    }
+  }
+}
+
+.genre {
+  display: block;
+  width: fit-content;
+  color: colors.$secondary-color;
+  font-size: 10px;
+  background-color: rgba($color: colors.$primary-color, $alpha: .5);
+  padding: 4px 8px;
+  border-radius: 0 8px;
+  margin-bottom: 16px;
+}
+
+.rate {
+  margin-bottom: 16px;
+}
 
 #main-section {
   width: 100%;
   height: 620px;
   background-color: colors.$primary-color;
+  padding-bottom: 20px;
+
+  .container {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .row {
+    width: fit-content;
+  }
 }
 
-#btn-search:active {
-  color: rgb(192, 192, 192) !important;
+.movie-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 80%;
+  position: relative;
+  // border: 1px solid red;
 }
 
+.card {
+  height: 320px;
+  position: relative;
+  margin-bottom: 16px;
+  width: 16rem;
+
+  img {
+    height: 100%;
+  }
+
+
+}
+
+.card-text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  background-color: rgba($color: #000000, $alpha: .3);
+  padding: 4px 24px;
+
+  .genre {
+    margin-bottom: 4px;
+  }
+
+  .rate {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .movie-title {
+    font-size: 24px;
+    font-weight: map-get($map: $font-weights, $key: 'medium');
+  }
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // top: 0;
+  // bottom: 0;
+  // right: 0;
+  // left: 0;
+  background-color: rgba($color: #000000, $alpha: .5);
+  color: white;
+  opacity: 0;
+  transition: 1s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1199.98px) {
+  .caption-text {
+    width: 60vw;
+
+    .rate {
+      margin-bottom: 4px;
+    }
+
+    .movie-title {
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+
+    .description {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .btn-watch {
+      padding: 8px 32px;
+    }
+  }
+
+  #main-section {
+    .movie-list {
+      overflow-x: auto;
+    }
+
+    .row {
+      flex-wrap: nowrap;
+    }
+  }
+}
 
 @media (max-width: 991.98px) {
   #search-bar {
@@ -81,4 +261,18 @@ body {
     margin-bottom: 10px;
     width: 80%;
   }
+}
+
+/*css3 design scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(95, 95, 95, 0.3);
+  background: #666;
+}
+
+::-webkit-scrollbar-thumb {
+  background: colors.$third-color;
 }
