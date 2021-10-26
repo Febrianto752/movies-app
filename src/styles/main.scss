@@ -4,7 +4,7 @@
 @import './typography';
 
 .navbar-brand {
-  background: -webkit-linear-gradient(45deg, #08AADB, #f07328);
+  background: -webkit-linear-gradient(45deg, colors.$fourth-color, colors.$fiveth-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -70,13 +70,8 @@ body {
 .caption-text {
   width: 50vw;
   position: absolute;
-  // top: 132px;
-  // left: 236px;
   top: 18%;
   left: 18%;
-  // background-color: black;
-
-
 
   .movie-title {
     margin-bottom: 16px;
@@ -94,17 +89,17 @@ body {
     color: white;
     padding: 16px 56px;
     background: transparent;
-    border: 1px solid #08AADB;
+    border: 1px solid colors.$fourth-color;
     border-radius: 40px;
 
 
     &:hover {
-      background-color: #08AADB;
+      background-color: colors.$fourth-color;
     }
 
     &:active {
-      background-color: #047294;
-      border-color: #047294;
+      background-color: colors.$seventh-color;
+      border-color: colors.$seventh-color;
     }
   }
 }
@@ -126,9 +121,9 @@ body {
 
 #main-section {
   width: 100%;
-  height: 620px;
+  height: 780px;
   background-color: colors.$primary-color;
-  padding-bottom: 20px;
+  padding-bottom: 80px;
 
   .container {
     width: 90%;
@@ -147,20 +142,17 @@ body {
   overflow-x: hidden;
   height: 80%;
   position: relative;
-  // border: 1px solid red;
 }
 
 .card {
   height: 320px;
   position: relative;
   margin-bottom: 16px;
-  width: 16rem;
+  width: 16rem !important;
 
   img {
     height: 100%;
   }
-
-
 }
 
 .card-text {
@@ -213,7 +205,26 @@ body {
 
 }
 
+#about {
+  width: 100%;
+  height: 280px;
+  background-color: colors.$third-color;
+  color: colors.$sixth-color;
+  text-align: center;
 
+  header {
+    padding: 36px 0;
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: colors.$primary-color;
+  color: white;
+}
 
 
 
@@ -244,15 +255,36 @@ body {
   }
 
   #main-section {
+    height: 480px;
+
+    header {
+      h4 {
+        font-size: 20px;
+      }
+    }
+
+    .card {
+      height: 240px;
+      width: 12rem !important;
+
+      .movie-title {
+        font-size: 16px;
+      }
+    }
+
     .movie-list {
       overflow-x: auto;
+      height: fit-content;
     }
 
     .row {
       flex-wrap: nowrap;
     }
   }
+
 }
+
+
 
 @media (max-width: 991.98px) {
   #search-bar {
