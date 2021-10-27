@@ -4,7 +4,7 @@ class BannerApp extends HTMLElement {
   }
 
   set items(items) {
-    this._items = items;
+    this.itemss = items;
     this.render();
   }
 
@@ -24,11 +24,10 @@ class BannerApp extends HTMLElement {
       </button>
     </div>`;
 
-    if (this._items) {
+    if (this.itemss) {
       const carouselInner = this.querySelector('.carousel-inner');
       carouselInner.innerHTML = '';
-      this._items.forEach((item, i) => {
-        console.log(item);
+      this.itemss.forEach((item, i) => {
         let genreElement = '';
         item.genre_names.forEach((name) => {
           genreElement += `<small class="genre">${name}</small>`;

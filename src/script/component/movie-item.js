@@ -1,27 +1,25 @@
 import './modal-item';
+
 class MovieItem extends HTMLElement {
   set movie(movie) {
-    this._movie = movie;
+    this.moviee = movie;
     this.render();
   }
 
   render() {
-
     this.setAttribute('class', 'col');
     this.innerHTML = `
     
       <div class="card" style="width: 16rem;">
-        <img src="https://image.tmdb.org/t/p/w500${this._movie.poster_path}" alt="image">
+        <img src="https://image.tmdb.org/t/p/w500${this.moviee.poster_path}" alt="image">
         <div class="card-text">
-          <small class="genre">
-            Fantasy
-          </small>
+        <small class="genre">${this.moviee.genre_names[0]}</small>
           <div class="rate">
-            <span>${this._movie.vote_average}</span>
+            <span>${this.moviee.vote_average}</span>
             <i class="fas fa-star"></i>
           </div>
           <div class="movie-title">
-            <p>${this._movie.title}</p>
+            <p>${this.moviee.title}</p>
           </div>
         </div>
         <button type="button" class="overlay" data-bs-toggle="modal" data-bs-target="#detailMovie">
@@ -33,15 +31,11 @@ class MovieItem extends HTMLElement {
     
     `;
 
-    const movie = this._movie;
+    const movie = this.moviee;
     const modal = document.querySelector('modal-item');
     this.querySelector('.overlay').addEventListener('click', () => {
-      console.log(movie);
-      console.log(modal);
       modal.body = movie;
     });
-
-
   }
 }
 

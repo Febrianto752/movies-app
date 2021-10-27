@@ -2,13 +2,11 @@ import DataSource from '../data/data-source';
 import '../component/banner-app';
 import '../component/movie-list';
 
-const IMG_URL = 'https://image.tmdb.org/t/p/w500';
-
 function main() {
   const banner = document.querySelector('banner-app');
-  const modalDetailMovie = document.getElementById('detailMovie');
+  const btnSearch = document.querySelector('#btn-search');
   const movieList = document.querySelector('movie-list');
-
+  const inputSearch = document.querySelector('.input-search');
 
   function getGenreNameById(listGenre, movieGenreIds) {
     const genreNames = [];
@@ -30,38 +28,47 @@ function main() {
       top3Rated.forEach((movie, i) => {
         const genreNames = getGenreNameById(listMovieGenre, movie.genre_ids);
         top3Rated[i].genre_names = genreNames;
-        // movie.genre_names = genreNames;
       });
       banner.items = top3Rated;
     } catch (error) {
       console.log(error);
     }
-
-    console.log('set banner');
   };
 
-  const showMovieList = async () => {
+  const showMovieList = async (keyword = false) => {
     try {
-      const moviePopulars = await DataSource.moviePopulars();
+      let movies = null;
       const listMovieGenre = await DataSource.getListGenre();
-      moviePopulars.forEach((movie, i) => {
+      if (keyword) {
+        movies = await DataSource.searchMovie(keyword);
+      } else {
+        movies = await DataSource.moviePopulars();
+      }
+
+      movies.forEach((movie, i) => {
         const genreNames = getGenreNameById(listMovieGenre, movie.genre_ids);
-        moviePopulars[i].genre_names = genreNames;
-      })
+        movies[i].genre_names = genreNames;
+      });
 
-      movieList.movies = moviePopulars;
-
-      // console.log(modalDetailMovie);
-      console.log('hai');
+      movieList.movies = movies;
     } catch (error) {
       movieList.renderError(error);
     }
-  }
+  };
+
+  btnSearch.addEventListener('click', () => {
+    showMovieList(inputSearch.value);
+  });
+
+  inputSearch.addEventListener('keyup', (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      btnSearch.click();
+    }
+  });
 
   setBanner();
   showMovieList();
-
-
 }
 
 export default main;

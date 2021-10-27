@@ -40,13 +40,15 @@ class DataSource {
       https://api.themoviedb.org/3/search/movie?api_key=7705cf962c57d72269442a0a9d1ce641&language=en-US&query=${keyword}&page=1&include_adult=false`)
         .then((response) => response.json())
         .then((responseJson) => {
-          if (responseJson.results) {
+          if (responseJson.results && responseJson.total_results > 0) {
+            console.log('berhasil');
             return Promise.resolve(responseJson.results);
           }
-          return Promise.reject(new Error('Movie is not found!'));
+          return Promise.reject(new Error('movie not found'));
         });
     }
-    this.moviePopulars();
+
+    return 1;
   }
 }
 

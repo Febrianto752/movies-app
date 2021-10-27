@@ -6,10 +6,9 @@ class MovieList extends HTMLElement {
   }
 
   set movies(movies) {
-    this._movies = movies;
+    this.moviess = movies;
     this.render();
   }
-
 
   render() {
     this.innerHTML = `
@@ -19,26 +18,26 @@ class MovieList extends HTMLElement {
           <h4 class="text-white mb-5">Movie List</h4>
         </header>
         <main class="movie-list">
-          <div class="row justify-content-around">
+          <div class="row justify-content-around px-1">
 
           </div>
         </main>
       </div>
     </section>`;
 
-    if (this._movies) {
+    if (this.moviess) {
       this.querySelector('.row').innerHTML = '';
-      this._movies.forEach(movie => {
+      this.moviess.forEach((movie) => {
         const movieItemElement = document.createElement('movie-item');
         movieItemElement.movie = movie;
         this.querySelector('.row').appendChild(movieItemElement);
       });
     }
-
   }
 
   renderError(message) {
-    this.querySelector('.row').innerHTML = `${message}`;
+    this.querySelector('.row').style.width = '100%';
+    this.querySelector('.row').innerHTML = `<div class="col justify-content-center text-white text-center w-100">${message}</div>`;
   }
 }
 
