@@ -12,23 +12,23 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.html$/,
-        loader: 'html-loader',
-      },
-      // css and sass loader
-      {
-        test: /\.(sc|c)ss$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            publicPath: '',
-          },
-        }, 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(png|svg|jpe?g|gif)$/i,
-        type: 'asset/resource',
-      },
+      test: /\.html$/,
+      loader: 'html-loader',
+    },
+    // css and sass loader
+    {
+      test: /\.(sc|c)ss$/,
+      use: [{
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '',
+        },
+      }, 'css-loader', 'sass-loader'],
+    },
+    {
+      test: /\.(png|svg|jpe?g|gif)$/i,
+      type: 'asset/resource',
+    },
 
     ],
   },

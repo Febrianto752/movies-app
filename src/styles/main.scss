@@ -64,7 +64,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba($color: #000000, $alpha: .3);
+  background-color: rgba($color: #000000, $alpha: .5);
 }
 
 .caption-text {
@@ -104,8 +104,14 @@ body {
   }
 }
 
+.carousel {
+  img {
+    height: 480px;
+  }
+}
+
 .genre {
-  display: block;
+  display: inline-block;
   width: fit-content;
   color: colors.$secondary-color;
   font-size: 10px;
@@ -113,6 +119,7 @@ body {
   padding: 4px 8px;
   border-radius: 0 8px;
   margin-bottom: 16px;
+  margin-right: 6px;
 }
 
 .rate {
@@ -170,6 +177,7 @@ body {
 
   .genre {
     margin-bottom: 4px;
+
   }
 
   .rate {
@@ -190,10 +198,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  // top: 0;
-  // bottom: 0;
-  // right: 0;
-  // left: 0;
   background-color: rgba($color: #000000, $alpha: .5);
   color: white;
   opacity: 0;
@@ -232,6 +236,12 @@ footer {
 
 
 @media (max-width: 1199.98px) {
+  .carousel {
+    img {
+      height: 360px;
+    }
+  }
+
   .caption-text {
     width: 60vw;
 

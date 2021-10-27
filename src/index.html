@@ -19,7 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="ms-auto" id="search-bar">
-            <input type="text" class="input-search" placeholder="Search Keyword...">
+            <input type="text" class="input-search" placeholder="Search movie..">
             <div id="btn-search">
               <i class="fa fa-search" aria-hidden="true"></i>
             </div>
@@ -30,12 +30,13 @@
 
     </nav>
 
-    <div id="banner" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <!-- <div id="banner" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="./images/img1.png" class="d-block w-100" alt="gambar">
           <div class="carousel-caption d-none d-md-block text-start">
             <div class="caption-text">
+              <small class="genre">Science Fiction</small>
               <small class="genre">Science Fiction</small>
               <div class="rate">
                 <span>5.7</span>
@@ -94,10 +95,12 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
-    </div>
+    </div> -->
+
+    <banner-app></banner-app>
 
     <!-- main section (movie list)  -->
-    <section id="main-section">
+    <!-- <section id="main-section">
       <div class="container">
         <header class="pt-5">
           <h4 class="text-white mb-5">Movie List</h4>
@@ -106,7 +109,7 @@
           <div class="row justify-content-around">
             <div class="col">
               <div class="card" style="width: 16rem;">
-                <img src="./images/img1.png" class="" alt="image">
+                <img src="./images/img1.png" alt="image" id="targetMovie">
                 <div class="card-text">
                   <small class="genre">
                     Fantasy
@@ -170,100 +173,14 @@
 
               </div>
             </div>
-            <div class="col">
-              <div class="card" style="width: 16rem;">
-                <img src="./images/img1.png" class="" alt="image">
-                <div class="card-text">
-                  <small class="genre">
-                    Fantasy
-                  </small>
-                  <div class="rate">
-                    <span>5.7</span>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="movie-title">
-                    <p>Wonder Woman asdasdasd</p>
-                  </div>
-                </div>
-                <button type="button" class="overlay" data-bs-toggle="modal" data-bs-target="#detailMovie">
-                  <span class="mt-1 me-1"><i class="fas fa-search"></i></span>
-                  <span>get detail</span>
-                </button>
 
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 16rem;">
-                <img src="./images/img1.png" class="" alt="image">
-                <div class="card-text">
-                  <small class="genre">
-                    Fantasy
-                  </small>
-                  <div class="rate">
-                    <span>5.7</span>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="movie-title">
-                    <p>Wonder Woman asdasdasd</p>
-                  </div>
-                </div>
-                <button type="button" class="overlay" data-bs-toggle="modal" data-bs-target="#detailMovie">
-                  <span class="mt-1 me-1"><i class="fas fa-search"></i></span>
-                  <span>get detail</span>
-                </button>
-
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 16rem;">
-                <img src="./images/img1.png" class="" alt="image">
-                <div class="card-text">
-                  <small class="genre">
-                    Fantasy
-                  </small>
-                  <div class="rate">
-                    <span>5.7</span>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="movie-title">
-                    <p>Wonder Woman asdasdasd</p>
-                  </div>
-                </div>
-                <button type="button" class="overlay" data-bs-toggle="modal" data-bs-target="#detailMovie">
-                  <span class="mt-1 me-1"><i class="fas fa-search"></i></span>
-                  <span>get detail</span>
-                </button>
-
-              </div>
-            </div>
-            <div class="col">
-              <div class="card" style="width: 16rem;">
-                <img src="./images/img1.png" class="" alt="image">
-                <div class="card-text">
-                  <small class="genre">
-                    Fantasy
-                  </small>
-                  <div class="rate">
-                    <span>5.7</span>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="movie-title">
-                    <p>Wonder Woman asdasdasd</p>
-                  </div>
-                </div>
-                <button type="button" class="overlay" data-bs-toggle="modal" data-bs-target="#detailMovie">
-                  <span class="mt-1 me-1"><i class="fas fa-search"></i></span>
-                  <span>get detail</span>
-                </button>
-
-              </div>
-            </div>
           </div>
         </main>
       </div>
 
-    </section>
+    </section> -->
 
+    <movie-list></movie-list>
 
     <!-- about section  -->
     <section id="about">
@@ -282,13 +199,13 @@
     </section>
 
     <footer>
-      <p>&copy; 2021, The Spark Movie. All Right Reserved</p>
+      <p>&copy; 2021, The Spark Movies. All Right Reserved</p>
     </footer>
 
 
     <!-- Modal -->
-    <div class="modal fade" id="detailMovie" tabindex="-1" aria-labelledby="detailMovieLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <!-- <div class="modal fade" id="detailMovie" tabindex="-1" aria-labelledby="detailMovieLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="detailMovieLabel">Movie Details</h5>
@@ -331,7 +248,9 @@
                     <td>:</td>
                     <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt magnam dolorem, ab dolorum
                       fuga mollitia illo quisquam accusantium ut neque vel aut, non minima veniam necessitatibus.
-                      Dolorum ipsam nostrum distinctio?</td>
+                      Dolorum ipsam nostrum distinctio? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Voluptas eos facilis provident molestiae aliquam architecto culpa et perferendis vero. Quasi odit
+                      nostrum, dolorum inventore delectus voluptate error at laboriosam facere!</td>
                   </tr>
                 </table>
               </div>
@@ -339,10 +258,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
-
+    <modal-item></modal-item>
 
 
 
